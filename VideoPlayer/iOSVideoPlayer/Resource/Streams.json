@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "stream_id": "1",
+      "stream_name": "Basic Stream",
+      "stream_url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/bipbop_4x3/bipbop_4x3_variant.m3u8"
+    },
+    {
+      "stream_id": "2",
+      "stream_name": "Advanced Stream",
+      "stream_url": "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8"
+    }
+  ]
+}
+

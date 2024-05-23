@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  VideoPlayer
+
+  Created by 洪宗鴻 on 2024/5/16.
+  
+*/
+
+"PlayListTitle" = "PlayList";
+
+"GetAssetsFailedAlertTitle" = "Error";
+"GetAssetsFailedAlertActionTitle" = "Cancel";
