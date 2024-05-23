@@ -31,7 +31,8 @@ public class RemoteStreamLoader: StreamLoader {
     // MARK: - Functions
     
     public func load(completion: @escaping (StreamLoader.Result) -> Void) {
-        client.get(from: url) { result in
+        client.get(from: url) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success((let data, let response)):
                 if response.statusCode == 200, let root = try? JSONDecoder().decode(Root.self, from: data) {
