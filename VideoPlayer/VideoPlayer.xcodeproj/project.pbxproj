@@ -17,6 +17,10 @@
 		FECCF9E52BFFFB1F008ABFB3 /* LoadStreamFromRemoteUseCaseTests+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9E22BFFFB1F008ABFB3 /* LoadStreamFromRemoteUseCaseTests+Helpers.swift */; };
 		FECCF9E62BFFFB1F008ABFB3 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9E32BFFFB1F008ABFB3 /* XCTestCase+MemoryLeakTracking.swift */; };
 		FECCF9E72BFFFB1F008ABFB3 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9E42BFFFB1F008ABFB3 /* HTTPClientSpy.swift */; };
+		FECCF9F12BFFFFB5008ABFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9F02BFFFFB5008ABFB3 /* AppDelegate.swift */; };
+		FECCF9F52BFFFFB5008ABFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9F42BFFFFB5008ABFB3 /* ViewController.swift */; };
+		FECCF9FA2BFFFFB7008ABFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECCF9F92BFFFFB7008ABFB3 /* Assets.xcassets */; };
+		FECCF9FD2BFFFFB7008ABFB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FECCF9FB2BFFFFB7008ABFB3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,11 @@
 		FECCF9E32BFFFB1F008ABFB3 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		FECCF9E42BFFFB1F008ABFB3 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		FECCF9E82BFFFD7B008ABFB3 /* VideoPlayer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoPlayer.xctestplan; sourceTree = "<group>"; };
+		FECCF9EE2BFFFFB5008ABFB3 /* iOSVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FECCF9F02BFFFFB5008ABFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FECCF9F42BFFFFB5008ABFB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FECCF9F92BFFFFB7008ABFB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FECCF9FC2BFFFFB7008ABFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FECCF9EB2BFFFFB5008ABFB3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +85,7 @@
 				FECCF9E82BFFFD7B008ABFB3 /* VideoPlayer.xctestplan */,
 				FECCF9C12BFFF9DD008ABFB3 /* VideoPlayer */,
 				FECCF9D72BFFFAE2008ABFB3 /* VideoPlayerTests */,
+				FECCF9EF2BFFFFB5008ABFB3 /* iOSVideoPlayer */,
 				FECCF9C02BFFF9DD008ABFB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +95,7 @@
 			children = (
 				FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */,
 				FECCF9D62BFFFAE2008ABFB3 /* VideoPlayerTests.xctest */,
+				FECCF9EE2BFFFFB5008ABFB3 /* iOSVideoPlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +137,17 @@
 				FECCF9E32BFFFB1F008ABFB3 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		FECCF9EF2BFFFFB5008ABFB3 /* iOSVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				FECCF9F02BFFFFB5008ABFB3 /* AppDelegate.swift */,
+				FECCF9F42BFFFFB5008ABFB3 /* ViewController.swift */,
+				FECCF9F92BFFFFB7008ABFB3 /* Assets.xcassets */,
+				FECCF9FB2BFFFFB7008ABFB3 /* LaunchScreen.storyboard */,
+			);
+			path = iOSVideoPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +200,23 @@
 			productReference = FECCF9D62BFFFAE2008ABFB3 /* VideoPlayerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		FECCF9ED2BFFFFB5008ABFB3 /* iOSVideoPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FECCF9FF2BFFFFB7008ABFB3 /* Build configuration list for PBXNativeTarget "iOSVideoPlayer" */;
+			buildPhases = (
+				FECCF9EA2BFFFFB5008ABFB3 /* Sources */,
+				FECCF9EB2BFFFFB5008ABFB3 /* Frameworks */,
+				FECCF9EC2BFFFFB5008ABFB3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSVideoPlayer;
+			productName = iOSVideoPlayer;
+			productReference = FECCF9EE2BFFFFB5008ABFB3 /* iOSVideoPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,6 +235,9 @@
 						CreatedOnToolsVersion = 15.0.1;
 						LastSwiftMigration = 1500;
 					};
+					FECCF9ED2BFFFFB5008ABFB3 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 				};
 			};
 			buildConfigurationList = FECCF9B92BFFF9DD008ABFB3 /* Build configuration list for PBXProject "VideoPlayer" */;
@@ -206,6 +255,7 @@
 			targets = (
 				FECCF9BE2BFFF9DD008ABFB3 /* VideoPlayer */,
 				FECCF9D52BFFFAE2008ABFB3 /* VideoPlayerTests */,
+				FECCF9ED2BFFFFB5008ABFB3 /* iOSVideoPlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +272,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FECCF9EC2BFFFFB5008ABFB3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FECCF9FD2BFFFFB7008ABFB3 /* LaunchScreen.storyboard in Resources */,
+				FECCF9FA2BFFFFB7008ABFB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +309,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FECCF9EA2BFFFFB5008ABFB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FECCF9F52BFFFFB5008ABFB3 /* ViewController.swift in Sources */,
+				FECCF9F12BFFFFB5008ABFB3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,6 +328,17 @@
 			targetProxy = FECCF9DB2BFFFAE2008ABFB3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FECCF9FB2BFFFFB7008ABFB3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FECCF9FC2BFFFFB7008ABFB3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FECCF9C42BFFF9DD008ABFB3 /* Debug */ = {
@@ -497,6 +576,58 @@
 			};
 			name = Release;
 		};
+		FECCFA002BFFFFB7008ABFB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.iOSVideoPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FECCFA012BFFFFB7008ABFB3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.iOSVideoPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +654,15 @@
 			buildConfigurations = (
 				FECCF9DE2BFFFAE2008ABFB3 /* Debug */,
 				FECCF9DF2BFFFAE2008ABFB3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FECCF9FF2BFFFFB7008ABFB3 /* Build configuration list for PBXNativeTarget "iOSVideoPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FECCFA002BFFFFB7008ABFB3 /* Debug */,
+				FECCFA012BFFFFB7008ABFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
