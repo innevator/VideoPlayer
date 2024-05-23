@@ -8,11 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		FECCF9C32BFFF9DD008ABFB3 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FECCF9CB2BFFFA6E008ABFB3 /* StreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */; };
+		FECCF9CC2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */; };
+		FECCF9CF2BFFFA98008ABFB3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9CE2BFFFA98008ABFB3 /* HTTPClient.swift */; };
+		FECCF9D12BFFFAAD008ABFB3 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9D02BFFFAAD008ABFB3 /* Stream.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
+		FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamLoader.swift; sourceTree = "<group>"; };
+		FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteStreamLoader.swift; sourceTree = "<group>"; };
+		FECCF9CE2BFFFA98008ABFB3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		FECCF9D02BFFFAAD008ABFB3 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +53,21 @@
 		FECCF9C12BFFF9DD008ABFB3 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				FECCF9CE2BFFFA98008ABFB3 /* HTTPClient.swift */,
+				FECCF9D02BFFFAAD008ABFB3 /* Stream.swift */,
+				FECCF9CD2BFFFA88008ABFB3 /* Service */,
 				FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */,
 			);
 			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		FECCF9CD2BFFFA88008ABFB3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */,
+				FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +113,7 @@
 				TargetAttributes = {
 					FECCF9BE2BFFF9DD008ABFB3 = {
 						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -129,6 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FECCF9CC2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift in Sources */,
+				FECCF9CB2BFFFA6E008ABFB3 /* StreamLoader.swift in Sources */,
+				FECCF9CF2BFFFA98008ABFB3 /* HTTPClient.swift in Sources */,
+				FECCF9D12BFFFAAD008ABFB3 /* Stream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +288,7 @@
 		FECCF9C72BFFF9DD008ABFB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -286,6 +312,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -294,6 +321,7 @@
 		FECCF9C82BFFF9DD008ABFB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
