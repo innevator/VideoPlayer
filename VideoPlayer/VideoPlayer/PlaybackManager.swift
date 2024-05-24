@@ -82,7 +82,9 @@ public class PlaybackManager: NSObject {
     override public init() {
         super.init()
         
+        #if os(iOS)
         player.usesExternalPlaybackWhileExternalScreenIsActive = true
+        #endif
         
         let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         periodicTimeObserver = player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
