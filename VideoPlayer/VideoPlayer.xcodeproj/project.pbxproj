@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE17BC892C071567007E11B6 /* PlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC822C071567007E11B6 /* PlayListTableViewCell.swift */; };
-		FE17BC8A2C071567007E11B6 /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC832C071567007E11B6 /* PlayListViewController.swift */; };
-		FE17BC8B2C071567007E11B6 /* AssetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC852C071567007E11B6 /* AssetService.swift */; };
-		FE17BC8C2C071567007E11B6 /* PlayListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC872C071567007E11B6 /* PlayListViewModel.swift */; };
-		FE17BC8D2C071567007E11B6 /* PlayListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC882C071567007E11B6 /* PlayListTableViewCellViewModel.swift */; };
+		FE17BC992C07161D007E11B6 /* PlayListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC922C07161D007E11B6 /* PlayListViewModel.swift */; };
+		FE17BC9A2C07161D007E11B6 /* PlayListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC932C07161D007E11B6 /* PlayListTableViewCellViewModel.swift */; };
+		FE17BC9B2C07161D007E11B6 /* PlayListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC952C07161D007E11B6 /* PlayListTableViewCell.swift */; };
+		FE17BC9C2C07161D007E11B6 /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC962C07161D007E11B6 /* PlayListViewController.swift */; };
+		FE17BC9D2C07161D007E11B6 /* AssetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC982C07161D007E11B6 /* AssetService.swift */; };
 		FECCF9C32BFFF9DD008ABFB3 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FECCF9CB2BFFFA6E008ABFB3 /* StreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */; };
 		FECCF9CC2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */; };
@@ -124,11 +124,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FE17BC822C071567007E11B6 /* PlayListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTableViewCell.swift; sourceTree = "<group>"; };
-		FE17BC832C071567007E11B6 /* PlayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
-		FE17BC852C071567007E11B6 /* AssetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetService.swift; sourceTree = "<group>"; };
-		FE17BC872C071567007E11B6 /* PlayListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListViewModel.swift; sourceTree = "<group>"; };
-		FE17BC882C071567007E11B6 /* PlayListTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		FE17BC922C07161D007E11B6 /* PlayListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListViewModel.swift; sourceTree = "<group>"; };
+		FE17BC932C07161D007E11B6 /* PlayListTableViewCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		FE17BC952C07161D007E11B6 /* PlayListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListTableViewCell.swift; sourceTree = "<group>"; };
+		FE17BC962C07161D007E11B6 /* PlayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
+		FE17BC982C07161D007E11B6 /* AssetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetService.swift; sourceTree = "<group>"; };
 		FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamLoader.swift; sourceTree = "<group>"; };
@@ -238,30 +238,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FE17BC812C071567007E11B6 /* View */ = {
+		FE17BC902C07161D007E11B6 /* PlayList Feature */ = {
 			isa = PBXGroup;
 			children = (
-				FE17BC822C071567007E11B6 /* PlayListTableViewCell.swift */,
-				FE17BC832C071567007E11B6 /* PlayListViewController.swift */,
+				FE17BC912C07161D007E11B6 /* ViewModel */,
+				FE17BC942C07161D007E11B6 /* View */,
+				FE17BC972C07161D007E11B6 /* Service */,
+			);
+			path = "PlayList Feature";
+			sourceTree = "<group>";
+		};
+		FE17BC912C07161D007E11B6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FE17BC922C07161D007E11B6 /* PlayListViewModel.swift */,
+				FE17BC932C07161D007E11B6 /* PlayListTableViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FE17BC942C07161D007E11B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE17BC952C07161D007E11B6 /* PlayListTableViewCell.swift */,
+				FE17BC962C07161D007E11B6 /* PlayListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		FE17BC842C071567007E11B6 /* Service */ = {
+		FE17BC972C07161D007E11B6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				FE17BC852C071567007E11B6 /* AssetService.swift */,
+				FE17BC982C07161D007E11B6 /* AssetService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		FE17BC862C071567007E11B6 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				FE17BC872C071567007E11B6 /* PlayListViewModel.swift */,
-				FE17BC882C071567007E11B6 /* PlayListTableViewCellViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		FECCF9B52BFFF9DD008ABFB3 = {
@@ -334,7 +344,7 @@
 				FECCF9F92BFFFFB7008ABFB3 /* Assets.xcassets */,
 				FECCF9FB2BFFFFB7008ABFB3 /* LaunchScreen.storyboard */,
 				FECCFA612C0009BA008ABFB3 /* Model */,
-				FECCFA642C0009D5008ABFB3 /* PlayList Feature */,
+				FE17BC902C07161D007E11B6 /* PlayList Feature */,
 				FECCFA862C000A84008ABFB3 /* PlayVideo Feature */,
 				FECCFA722C0009E8008ABFB3 /* Utils */,
 				FECCFAA02C000AB6008ABFB3 /* Helper */,
@@ -396,16 +406,6 @@
 			);
 			name = Model;
 			path = ../../../HJH/VideoPlayer/iOSVideoPlayer/Model;
-			sourceTree = "<group>";
-		};
-		FECCFA642C0009D5008ABFB3 /* PlayList Feature */ = {
-			isa = PBXGroup;
-			children = (
-				FE17BC842C071567007E11B6 /* Service */,
-				FE17BC812C071567007E11B6 /* View */,
-				FE17BC862C071567007E11B6 /* ViewModel */,
-			);
-			name = "PlayList Feature";
 			sourceTree = "<group>";
 		};
 		FECCFA722C0009E8008ABFB3 /* Utils */ = {
@@ -684,8 +684,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE17BC8D2C071567007E11B6 /* PlayListTableViewCellViewModel.swift in Sources */,
-				FE17BC8C2C071567007E11B6 /* PlayListViewModel.swift in Sources */,
+				FE17BC992C07161D007E11B6 /* PlayListViewModel.swift in Sources */,
 				FECCFA552C00089D008ABFB3 /* ConstraintRelation.swift in Sources */,
 				FECCFA4C2C00089D008ABFB3 /* LayoutConstraint.swift in Sources */,
 				FECCFA4A2C00089D008ABFB3 /* UILayoutSupport+Extensions.swift in Sources */,
@@ -702,7 +701,6 @@
 				FECCFAAC2C000AB6008ABFB3 /* CGFloat+Extensions.swift in Sources */,
 				FECCFA962C000A84008ABFB3 /* SubtitleSelectionViewModel.swift in Sources */,
 				FECCFAA92C000AB6008ABFB3 /* UIView+Extensions.swift in Sources */,
-				FE17BC8B2C071567007E11B6 /* AssetService.swift in Sources */,
 				FECCFA492C00089D008ABFB3 /* ConstraintLayoutGuide.swift in Sources */,
 				FECCFA5C2C00089D008ABFB3 /* ConstraintMakerFinalizable.swift in Sources */,
 				FECCFAA72C000AB6008ABFB3 /* UISlider+Extensions.swift in Sources */,
@@ -712,7 +710,6 @@
 				FECCFA412C00089D008ABFB3 /* ConstraintLayoutSupport.swift in Sources */,
 				FECCFA592C00089D008ABFB3 /* ConstraintMakerExtendable.swift in Sources */,
 				FECCFA4E2C00089D008ABFB3 /* ConstraintOffsetTarget.swift in Sources */,
-				FE17BC8A2C071567007E11B6 /* PlayListViewController.swift in Sources */,
 				FECCFAAA2C000AB6008ABFB3 /* String+Extensions.swift in Sources */,
 				FECCFA9C2C000A84008ABFB3 /* VideoPlayerImage.swift in Sources */,
 				FECCFA422C00089D008ABFB3 /* ConstraintMakerRelatable.swift in Sources */,
@@ -722,6 +719,7 @@
 				FECCFA572C00089D008ABFB3 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				FECCFA992C000A84008ABFB3 /* PlayerControlView.swift in Sources */,
 				FECCFAAB2C000AB6008ABFB3 /* CMTime+Extensions.swift in Sources */,
+				FE17BC9C2C07161D007E11B6 /* PlayListViewController.swift in Sources */,
 				FECCFA482C00089D008ABFB3 /* Debugging.swift in Sources */,
 				FECCFA512C00089D008ABFB3 /* ConstraintDirectionalInsets.swift in Sources */,
 				FECCFA632C0009BA008ABFB3 /* Asset.swift in Sources */,
@@ -734,8 +732,8 @@
 				FECCFAA82C000AB6008ABFB3 /* UIAlertAction+Extensions.swift in Sources */,
 				FECCFA5B2C00089D008ABFB3 /* ConstraintAttributes.swift in Sources */,
 				FECCFA3D2C00089D008ABFB3 /* ConstraintConstantTarget.swift in Sources */,
+				FE17BC9B2C07161D007E11B6 /* PlayListTableViewCell.swift in Sources */,
 				FECCFA9E2C000A84008ABFB3 /* PlayVideoViewController.swift in Sources */,
-				FE17BC892C071567007E11B6 /* PlayListTableViewCell.swift in Sources */,
 				FECCFA5A2C00089D008ABFB3 /* ConstraintMultiplierTarget.swift in Sources */,
 				FECCFA442C00089D008ABFB3 /* ConstraintPriorityTarget.swift in Sources */,
 				FECCFA3F2C00089D008ABFB3 /* ConstraintConfig.swift in Sources */,
@@ -747,6 +745,8 @@
 				FECCFA522C00089D008ABFB3 /* ConstraintMakerRelatable+Extensions.swift in Sources */,
 				FECCFA562C00089D008ABFB3 /* ConstraintRelatableTarget.swift in Sources */,
 				FECCFA7B2C0009E8008ABFB3 /* Configurable.swift in Sources */,
+				FE17BC9A2C07161D007E11B6 /* PlayListTableViewCellViewModel.swift in Sources */,
+				FE17BC9D2C07161D007E11B6 /* AssetService.swift in Sources */,
 				FECCFA462C00089D008ABFB3 /* ConstraintViewDSL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
