@@ -446,8 +446,8 @@
 		FECCFA872C000A84008ABFB3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FECCFA882C000A84008ABFB3 /* SubtitleSelectionViewModel.swift */,
 				FECCFA892C000A84008ABFB3 /* PlayVideoViewModel.swift */,
+				FECCFA882C000A84008ABFB3 /* SubtitleSelectionViewModel.swift */,
 				FECCFA8A2C000A84008ABFB3 /* QualitySelectionViewModel.swift */,
 			);
 			path = ViewModel;
@@ -456,22 +456,14 @@
 		FECCFA8B2C000A84008ABFB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FECCFA8C2C000A84008ABFB3 /* PlayerControlView */,
-				FECCFA8E2C000A84008ABFB3 /* QualitySelectionViewController.swift */,
 				FECCFA8F2C000A84008ABFB3 /* Config */,
-				FECCFA922C000A84008ABFB3 /* SubTitleSelection */,
+				FECCFA8D2C000A84008ABFB3 /* PlayerControlView.swift */,
 				FECCFA942C000A84008ABFB3 /* PlayVideoViewController.swift */,
+				FECCFA8E2C000A84008ABFB3 /* QualitySelectionViewController.swift */,
 				FECCFA952C000A84008ABFB3 /* SubtitleSelectionViewController.swift */,
+				FECCFA932C000A84008ABFB3 /* SelectionCellView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		FECCFA8C2C000A84008ABFB3 /* PlayerControlView */ = {
-			isa = PBXGroup;
-			children = (
-				FECCFA8D2C000A84008ABFB3 /* PlayerControlView.swift */,
-			);
-			path = PlayerControlView;
 			sourceTree = "<group>";
 		};
 		FECCFA8F2C000A84008ABFB3 /* Config */ = {
@@ -481,14 +473,6 @@
 				FECCFA912C000A84008ABFB3 /* VideoPlayerImage.swift */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		FECCFA922C000A84008ABFB3 /* SubTitleSelection */ = {
-			isa = PBXGroup;
-			children = (
-				FECCFA932C000A84008ABFB3 /* SelectionCellView.swift */,
-			);
-			path = SubTitleSelection;
 			sourceTree = "<group>";
 		};
 		FECCFAA02C000AB6008ABFB3 /* Helper */ = {
@@ -923,12 +907,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
@@ -959,12 +944,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
@@ -987,8 +973,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.VideoPlayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1009,8 +995,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sample.VideoPlayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1035,7 +1021,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1061,7 +1047,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

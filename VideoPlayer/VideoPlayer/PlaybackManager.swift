@@ -83,6 +83,7 @@ public class PlaybackManager: NSObject {
         super.init()
         
         #if os(iOS)
+        player.allowsExternalPlayback = true
         player.usesExternalPlaybackWhileExternalScreenIsActive = true
         #endif
         
