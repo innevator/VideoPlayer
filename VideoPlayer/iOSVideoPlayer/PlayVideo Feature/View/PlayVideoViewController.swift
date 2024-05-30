@@ -173,7 +173,14 @@ class PlayVideoViewController: UIViewController {
     
     private func setupGestureRecognizers() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        tapGesture.numberOfTapsRequired = 1
         view.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
+        doubleTapGesture.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTapGesture)
+        
+        tapGesture.require(toFail: doubleTapGesture)
     }
     
     private func setupSubtiteSelectionView() {
@@ -200,6 +207,15 @@ extension PlayVideoViewController {
     @objc private func handleTap(_: UITapGestureRecognizer) {
         viewModel.resetControlsHiddenTimer()
         playerControlView.isHidden ? showControls() : hideControls()
+    }
+    
+    @objc private func handleDoubleTap(tap: UITapGestureRecognizer) {
+        if tap.location(in: view).x > view.frame.size.width / 2 {
+            seekForward()
+        }
+        else {
+            seekBackward()
+        }
     }
     
     private func showControls() {
