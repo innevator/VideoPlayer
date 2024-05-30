@@ -114,6 +114,8 @@ class PlayVideoViewController: UIViewController {
             self.playerControlView.subtitleLabelText = playback.name
             self.playerControlView.seekBarValue = 0
             self.playerControlView.seekBarMaximumValue = 0
+            self.playerControlView.previousVideoButtonState = self.viewModel.hasPreviousPlayback
+            self.playerControlView.nextVideoButtonState = self.viewModel.hasNextPlayback
             let time = CMTime(seconds: 0, preferredTimescale: 1)
             self.playerControlView.currentTimeLabelText = time.durationText + "/"
             self.playerControlView.totalTimeLabelText = time.durationText

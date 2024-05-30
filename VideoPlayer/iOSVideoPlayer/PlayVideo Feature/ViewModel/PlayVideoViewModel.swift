@@ -11,6 +11,8 @@ import VideoPlayer
 import AVFoundation
 import UIKit
 
+// MARK: - Constant Setting
+
 private let seekDuration: Float64 = 15
 private let controlHideDelay: TimeInterval = 3.0
 
@@ -62,6 +64,13 @@ class PlayVideoViewModel {
         }
     }
     private var currentPlaybackIndex = 0
+    var hasPreviousPlayback: Bool {
+        return currentPlaybackIndex + PlaybackIndex.previous.rawValue >= 0
+    }
+    var hasNextPlayback: Bool {
+        return currentPlaybackIndex + PlaybackIndex.next.rawValue <= assets.count - 1
+    }
+    
     var supportedLanguages: [AVMediaSelectionOption] {
         return playbackManager.supportedLanguages ?? []
     }
