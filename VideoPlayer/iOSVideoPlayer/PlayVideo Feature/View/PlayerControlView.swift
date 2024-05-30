@@ -294,29 +294,16 @@ extension PlayerControlView {
         }
     }
     
-    private func getAttributedLiveString(isLive: Bool) -> NSMutableAttributedString {
-        let dotString = "\u{2022}  "
-        let attributedString = NSMutableAttributedString()
+    func updateUI(isPortrait: Bool) {
+        backButton.snp.remakeConstraints { make in
+            make.top.equalToSuperview().offset(CGFloat.space24)
+            make.leading.equalToSuperview().offset(isPortrait ? CGFloat.space8 : dynamicSpacing)
+        }
         
-        let dotAttributes: [NSAttributedString.Key: Any] = [
-            .font: FontUtility.helveticaNeueRegular(ofSize: 20),
-            .foregroundColor: isLive ? VideoPlayerColor(palette: .red).uiColor : VideoPlayerColor(palette: .pearlWhite).uiColor,
-        ]
-
-        let liveString = NSMutableAttributedString(string: dotString + "LIVE")
-
-        let liveAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor:VideoPlayerColor(palette: .white).uiColor,
-        ]
-
-        liveString.addAttributes(liveAttributes, range: NSRange(location: dotString.count, length: "LIVE".count))
-
-        let dotRange = NSRange(location: 0, length: dotString.count)
-        liveString.addAttributes(dotAttributes, range: dotRange)
-        
-        attributedString.append(liveString)
-        
-        return attributedString
+        settingsButton.snp.remakeConstraints { make in
+            make.top.equalTo(backButton.snp.top)
+            make.trailing.equalToSuperview().offset(isPortrait ? -CGFloat.space8 : -dynamicSpacing)
+        }
     }
 }
 

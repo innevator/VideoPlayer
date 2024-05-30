@@ -28,6 +28,18 @@ class PlayVideoViewController: UIViewController {
         return true
     }
     
+    var isPortrait: Bool {
+        let orientation = UIDevice.current.orientation
+        switch orientation {
+        case .portrait, .portraitUpsideDown:
+            return true
+        case .landscapeLeft, .landscapeRight:
+            return false
+        default: // unknown or faceUp or faceDown
+            guard let window = self.view.window else { return false }
+            return window.frame.size.width < window.frame.size.height
+        }
+    }
     
     // MARK: - Initializer
     
@@ -86,6 +98,10 @@ class PlayVideoViewController: UIViewController {
         playerLayer.frame = view.bounds
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        playerControlView.updateUI(isPortrait: isPortrait)
+    }
     
     // MARK: - Functions
     
@@ -142,6 +158,7 @@ class PlayVideoViewController: UIViewController {
             make.right.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
+        playerControlView.updateUI(isPortrait: isPortrait)
         playerControlView.delegate = self
         hideControls()
         
