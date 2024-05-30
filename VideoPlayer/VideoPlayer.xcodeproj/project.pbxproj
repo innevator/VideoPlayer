@@ -14,6 +14,7 @@
 		FE17BC9D2C07161D007E11B6 /* AssetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC982C07161D007E11B6 /* AssetService.swift */; };
 		FE17BCB12C0716BE007E11B6 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB02C0716BE007E11B6 /* Asset.swift */; };
 		FE17BCB32C08592D007E11B6 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */; };
+		FE17BCB52C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB42C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift */; };
 		FECCF9C32BFFF9DD008ABFB3 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FECCF9CB2BFFFA6E008ABFB3 /* StreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */; };
 		FECCF9CC2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */; };
@@ -132,6 +133,7 @@
 		FE17BC982C07161D007E11B6 /* AssetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetService.swift; sourceTree = "<group>"; };
 		FE17BCB02C0716BE007E11B6 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
+		FE17BCB42C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackManagerUseCaseTests.swift; sourceTree = "<group>"; };
 		FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamLoader.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 			children = (
 				FECCF9E92BFFFF65008ABFB3 /* Helper */,
 				FECCF9E02BFFFAFF008ABFB3 /* LoadStreamFromRemoteUseCaseTests.swift */,
+				FE17BCB42C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift */,
 			);
 			path = VideoPlayerTests;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 			files = (
 				FECCF9E12BFFFAFF008ABFB3 /* LoadStreamFromRemoteUseCaseTests.swift in Sources */,
 				FECCF9E72BFFFB1F008ABFB3 /* HTTPClientSpy.swift in Sources */,
+				FE17BCB52C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift in Sources */,
 				FECCF9E52BFFFB1F008ABFB3 /* LoadStreamFromRemoteUseCaseTests+Helpers.swift in Sources */,
 				FECCF9E62BFFFB1F008ABFB3 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
