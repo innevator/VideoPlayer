@@ -13,6 +13,7 @@
 		FE17BC9C2C07161D007E11B6 /* PlayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC962C07161D007E11B6 /* PlayListViewController.swift */; };
 		FE17BC9D2C07161D007E11B6 /* AssetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BC982C07161D007E11B6 /* AssetService.swift */; };
 		FE17BCB12C0716BE007E11B6 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB02C0716BE007E11B6 /* Asset.swift */; };
+		FE17BCB32C08592D007E11B6 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */; };
 		FECCF9C32BFFF9DD008ABFB3 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FECCF9CB2BFFFA6E008ABFB3 /* StreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */; };
 		FECCF9CC2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */; };
@@ -130,6 +131,7 @@
 		FE17BC962C07161D007E11B6 /* PlayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayListViewController.swift; sourceTree = "<group>"; };
 		FE17BC982C07161D007E11B6 /* AssetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetService.swift; sourceTree = "<group>"; };
 		FE17BCB02C0716BE007E11B6 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
 		FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamLoader.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				FECCFA742C0009E8008ABFB3 /* Router.swift */,
 				FECCFA752C0009E8008ABFB3 /* FontUtility.swift */,
 				FECCFA762C0009E8008ABFB3 /* Localization */,
+				FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				FECCFA9A2C000A84008ABFB3 /* QualitySelectionViewController.swift in Sources */,
 				FECCFA572C00089D008ABFB3 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				FECCFA992C000A84008ABFB3 /* PlayerControlView.swift in Sources */,
+				FE17BCB32C08592D007E11B6 /* URLSessionClient.swift in Sources */,
 				FECCFAAB2C000AB6008ABFB3 /* CMTime+Extensions.swift in Sources */,
 				FE17BC9C2C07161D007E11B6 /* PlayListViewController.swift in Sources */,
 				FECCFA482C00089D008ABFB3 /* Debugging.swift in Sources */,

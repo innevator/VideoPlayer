@@ -12,6 +12,7 @@ public class PlaybackManager: NSObject {
     // MARK: Properties
     
     private let player = AVPlayer()
+    private let client: HTTPClient
     private var playerItemObserver: NSKeyValueObservation?
     private var urlAssetObserver: NSKeyValueObservation?
     private var periodicTimeObserver: Any?
@@ -79,7 +80,8 @@ public class PlaybackManager: NSObject {
     
     // MARK: Intitialization
     
-    override public init() {
+    public init(client: HTTPClient) {
+        self.client = client
         super.init()
         
         #if os(iOS)
@@ -118,15 +120,14 @@ public class PlaybackManager: NSObject {
     // MARK: - Video Quality
     
     private func fetchSupportedVideoQualites(url: URL, completions: @escaping ([VideoQuality]) -> Void) {
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            if let data = data {
+        client.get(from: url) { result in
+            switch result {
+            case .success(let (data, _)):
                 let playbackQualities = M3u8Helper().fetchSupportedVideoQualities(with: data)
                 completions(playbackQualities)
-            }
-            else {
+            case .failure(_):
                 completions([])
             }
         }
-        task.resume()
     }
 }

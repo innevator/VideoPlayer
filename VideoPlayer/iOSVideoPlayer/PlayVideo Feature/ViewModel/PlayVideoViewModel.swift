@@ -44,7 +44,7 @@ class PlayVideoViewModel {
     }
     private let assets: [Asset]
     private var controlsHiddenTimer: Timer?
-    private let playbackManager = PlaybackManager()
+    private let playbackManager = PlaybackManager(client: URLSessionClient())
     private var isSeeking = false
     private var player: AVPlayer? {
         didSet {
