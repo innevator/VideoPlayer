@@ -40,7 +40,9 @@ class PlayVideoViewController: UIViewController {
         }
     }
     private var panOffset: Double = 0
+    private var subtitleSelectionVC: SubtitleSelectionViewController?
     private var qualitySelectionVC: QualitySelectionViewController?
+    
     
     // MARK: - Initializer
     
@@ -318,9 +320,12 @@ extension PlayVideoViewController: PlayerControlsViewDelegate {
     func switchSubtitles() {
         viewModel.invalidateControlsHiddenTimer()
         viewModel.pausePlay()
-        let subtitleSelectionView = SubtitleSelectionViewController(viewModel: .init(supportedLanguages: viewModel.supportedLanguages))
-        subtitleSelectionView.delegate = self
-        self.navigationController?.present(subtitleSelectionView, animated: true)
+        if subtitleSelectionVC == nil {
+            let subtitleSelectionVC = SubtitleSelectionViewController(viewModel: .init(supportedLanguages: viewModel.supportedLanguages))
+            subtitleSelectionVC.delegate = self
+            self.subtitleSelectionVC = subtitleSelectionVC
+        }
+        self.navigationController?.present(subtitleSelectionVC!, animated: true)
     }
     
     func openSettings() {
