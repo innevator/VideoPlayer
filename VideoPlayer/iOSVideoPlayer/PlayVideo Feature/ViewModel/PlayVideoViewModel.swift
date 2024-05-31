@@ -47,7 +47,6 @@ class PlayVideoViewModel {
     private let assets: [Asset]
     private var controlsHiddenTimer: Timer?
     private let playbackManager = PlaybackManager(client: URLSessionClient())
-    private var isSeeking = false
     private var player: AVPlayer? {
         didSet {
             if let player = player {
@@ -122,15 +121,24 @@ class PlayVideoViewModel {
         }
         playbackManager.playerPeriodicTimeChange = { [weak self] time in
             guard let self = self else { return }
-            if !self.isSeeking {
-                self.changePeriodTime(time)
-            }
+            self.changePeriodTime(time)
         }
         playbackManager.playerFinishPlaying = { [weak self] in
             guard let self = self else { return }
-            self.changePlayback(.next)
-            if self.playerState == .playing {
-                self.player?.play()
+            if let duration = player?.currentItem?.duration {
+                self.changePeriodTime(duration)
+            }
+            if hasNextPlayback {
+                self.changePlayback(.next)
+                if self.playerState == .playing {
+                    self.player?.play()
+                }
+            }
+            else {
+                if self.playerState == .playing {
+                    self.player?.pause()
+                    self.playerState = .pause
+                }
             }
         }
         playbackManager.getPlaybackQualities = { [weak self] qualities in
@@ -171,7 +179,6 @@ class PlayVideoViewModel {
             player?.pause()
             updatePlayerState(.pause)
         }
-        invalidateControlsHiddenTimer()
     }
     
     func resumPlay() {
@@ -179,36 +186,11 @@ class PlayVideoViewModel {
             player?.play()
             updatePlayerState(.playing)
         }
-        resetControlsHiddenTimer()
     }
     
-    func dragPeriodTime(value: Float, event: UIEvent) {
-        guard let player = player else { return }
-        isSeeking = true
-        let time = CMTimeMake(value: Int64(value), timescale: 1)
-        if let touchEvent = event.allTouches?.first {
-            switch touchEvent.phase {
-            case .began:
-                player.pause()
-                invalidateControlsHiddenTimer()
-            case .moved:
-                changePeriodTime(time)
-            case .ended:
-                resetControlsHiddenTimer()
-                player.seek(to: time) { [weak self] _ in
-                    self?.isSeeking = false
-                    self?.playerState == .playing ? player.play() : player.pause()
-                }
-            default:
-                break
-            }
-        }
-        else {
-            resetControlsHiddenTimer()
-            changePeriodTime(time)
-            player.seek(to: time) { [weak self] _ in
-                self?.isSeeking = false
-            }
+    func seekToTime(_ time: CMTime) {
+        player?.seek(to: time) { [weak self] finish in
+            self?.playerState == .playing ? self?.player?.play() : self?.player?.pause()
         }
     }
     

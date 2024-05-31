@@ -39,6 +39,7 @@ class PlayVideoViewController: UIViewController {
             return view.frame.size.width < view.frame.size.height
         }
     }
+    private var panOffset: Double = 0
     
     // MARK: - Initializer
     
@@ -181,6 +182,9 @@ class PlayVideoViewController: UIViewController {
         view.addGestureRecognizer(doubleTapGesture)
         
         tapGesture.require(toFail: doubleTapGesture)
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        view.addGestureRecognizer(panGesture)
     }
     
     private func setupSubtiteSelectionView() {
@@ -215,6 +219,30 @@ extension PlayVideoViewController {
         }
         else {
             seekBackward()
+        }
+    }
+   
+    @objc private func handlePan(pan: UIPanGestureRecognizer) {
+        switch pan.state {
+        case .began:
+            panOffset = pan.translation(in: view).x
+            viewModel.pausePlay()
+        case .changed:
+            let offset = (pan.translation(in: view).x - panOffset) / 10
+            var value = playerControlView.seekBarValue + Float(offset)
+            if value >= playerControlView.seekBarMaximumValue {
+                value = playerControlView.seekBarMaximumValue
+            }
+            if value <= 0 {
+                value = 0
+            }
+            let time = CMTimeMake(value: Int64(value), timescale: 1)
+            viewModel.changePeriodTime(time)
+        case .ended:
+            let time = CMTimeMake(value: Int64(playerControlView.seekBarValue), timescale: 1)
+            viewModel.seekToTime(time)
+        default:
+            break
         }
     }
     
@@ -265,7 +293,21 @@ extension PlayVideoViewController: PlayerControlsViewDelegate {
     }
     
     func sliderValueChanged(slider: UISlider, event: UIEvent) {
-        viewModel.dragPeriodTime(value: playerControlView.seekBarValue, event: event)
+        let time = CMTimeMake(value: Int64(playerControlView.seekBarValue), timescale: 1)
+        if let touchEvent = event.allTouches?.first {
+            switch touchEvent.phase {
+            case .began:
+                viewModel.invalidateControlsHiddenTimer()
+                viewModel.pausePlay()
+            case .moved:
+                viewModel.changePeriodTime(time)
+            case .ended:
+                viewModel.resetControlsHiddenTimer()
+                viewModel.seekToTime(time)
+            default:
+                break
+            }
+        }
     }
     
     func switchSubtitles() {
