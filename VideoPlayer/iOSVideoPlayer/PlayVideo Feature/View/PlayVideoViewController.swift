@@ -308,6 +308,11 @@ extension PlayVideoViewController: PlayerControlsViewDelegate {
                 break
             }
         }
+        else { // tap slider to seek, implement by extension gesture will not have touch event
+            viewModel.resetControlsHiddenTimer()
+            viewModel.changePeriodTime(time)
+            viewModel.seekToTime(time)
+        }
     }
     
     func switchSubtitles() {
