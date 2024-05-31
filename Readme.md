@@ -10,7 +10,7 @@ supports recent Xcodes (14.2+) and development with iOS 13.0, macOS 12.0
 * VideoPlayerTests
   * tests for VideoPlayer
 * iOSVideoPlayer
-  * iOS app using UIKit
+  * iOS app using UIKit, if you want to test the app, please use this target
 
 
 **Functionalities**
@@ -20,3 +20,5 @@ supports recent Xcodes (14.2+) and development with iOS 13.0, macOS 12.0
 - [x] remote streams playback
 - [ ] local storage streams playback
 - [x] device orientation
+- [x] gesture for player control
+- [ ] airplay, audio UI
