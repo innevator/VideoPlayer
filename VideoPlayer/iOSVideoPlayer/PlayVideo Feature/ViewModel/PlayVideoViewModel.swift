@@ -47,15 +47,7 @@ class PlayVideoViewModel {
     private let assets: [Asset]
     private var controlsHiddenTimer: Timer?
     private let playbackManager = PlaybackManager(client: URLSessionClient())
-    private var player: AVPlayer? {
-        didSet {
-            if let player = player {
-                readyToPlay(player, playerState)
-            }
-        }
-    }
     private(set) var currentPlayback: Asset? {
-        willSet { supportedQualities = [] }
         didSet {
             playbackManager.stream = currentPlayback?.getStream()
             guard let currentPlayback = currentPlayback else { return }
@@ -74,12 +66,8 @@ class PlayVideoViewModel {
         return playbackManager.supportedLanguages ?? []
     }
     
-    var supportedQualities: [VideoQuality] = []
-    private var currentQualitiyIndex = 0
-    var qualitiyViewModel: QualitySelectionViewModel {
-        let viewModel = QualitySelectionViewModel(supportedResolutions: supportedQualities.map(\.resolution))
-        viewModel.selectedItemIndex = currentQualitiyIndex
-        return viewModel
+    var supportedQualities: [Quality] {
+        return playbackManager.supportedQualities.map { Quality(videoQuality: $0) }
     }
     
     
@@ -117,7 +105,8 @@ class PlayVideoViewModel {
     
     func setupPlayback() {
         playbackManager.playerReadyToPlay = { [weak self] player in
-            self?.player = player
+            guard let self = self else { return }
+            self.readyToPlay(player, self.playerState)
         }
         playbackManager.playerPeriodicTimeChange = { [weak self] time in
             guard let self = self else { return }
@@ -125,34 +114,30 @@ class PlayVideoViewModel {
         }
         playbackManager.playerFinishPlaying = { [weak self] in
             guard let self = self else { return }
-            if let duration = player?.currentItem?.duration {
+            if let duration = playbackManager.playerItem?.duration {
                 self.changePeriodTime(duration)
             }
             if hasNextPlayback {
                 self.changePlayback(.next)
                 if self.playerState == .playing {
-                    self.player?.play()
+                    self.playbackManager.play()
                 }
             }
             else {
                 if self.playerState == .playing {
-                    self.player?.pause()
+                    self.playbackManager.pause()
                     self.playerState = .pause
                 }
             }
         }
-        playbackManager.getPlaybackQualities = { [weak self] qualities in
-            self?.supportedQualities = qualities
-        }
+        playbackManager.getPlaybackQualities = { _ in }
         
         let currentPlayback = assets[0]
         self.currentPlayback = currentPlayback
     }
     
     func removePlayback() {
-        if let player = player {
-            player.pause()
-        }
+        playbackManager.pause()
         currentPlayback = nil
     }
     
@@ -164,10 +149,10 @@ class PlayVideoViewModel {
     
     func playerStateToggle() {
         if playerState == .playing {
-            player?.pause()
+            playbackManager.pause()
         }
         else {
-            player?.play()
+            playbackManager.play()
             hideControls()
         }
         
@@ -176,65 +161,43 @@ class PlayVideoViewModel {
     
     func pausePlay() {
         if playerState == .playing {
-            player?.pause()
+            playbackManager.pause()
             updatePlayerState(.pause)
         }
     }
     
     func resumPlay() {
         if playerState == .playing {
-            player?.play()
+            playbackManager.play()
             updatePlayerState(.playing)
         }
     }
     
-    func seekToTime(_ time: CMTime) {
-        player?.seek(to: time) { [weak self] finish in
-            self?.playerState == .playing ? self?.player?.play() : self?.player?.pause()
+    func seekTo(_ value: Float) {
+        let time = CMTimeMake(value: Int64(value), timescale: 1)
+        playbackManager.seekToTime(time) { [weak self] finish in
+            self?.playerState == .playing ? self?.playbackManager.play() : self?.playbackManager.pause()
         }
     }
     
     func goForwardTime() {
-        guard let player = player,
-              let duration = player.currentItem?.duration
-        else { return }
-        let playerCurrentTime = CMTimeGetSeconds(player.currentTime())
-        let newTime = playerCurrentTime + seekDuration
-        let seekToTime = newTime < CMTimeGetSeconds(duration) ? CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000) : CMTimeMake(value: Int64(CMTimeGetSeconds(duration) * 1000 as Float64), timescale: 1000)
-        player.seek(to: seekToTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { [weak self] _ in
-            guard let self = self,
-                  let currentTime = player.currentItem?.currentTime()
-            else { return }
-            self.changePeriodTime(currentTime)
+        playbackManager.seekWithOffest(seekDuration) { [weak self] time in
+            self?.changePeriodTime(time)
         }
     }
     
     func goBackwardTime() {
-        guard let player = player else { return }
-        let playerCurrentTime = CMTimeGetSeconds(player.currentTime())
-        var newTime = playerCurrentTime - seekDuration
-        if newTime < 0 { newTime = 0 }
-        let seekToTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
-        player.seek(to: seekToTime, toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero) { [weak self] _ in
-            guard let self = self,
-                  let currentTime = player.currentItem?.currentTime()
-            else { return }
-            self.changePeriodTime(currentTime)
+        playbackManager.seekWithOffest(-seekDuration) { [weak self] time in
+            self?.changePeriodTime(time)
         }
     }
     
     func changeSubTitleTrack(_ subtitleTrack: AVMediaSelectionOption?) {
-        guard let playerItem = player?.currentItem,
-              let mediaSelectionGroup = playerItem.asset.mediaSelectionGroup(forMediaCharacteristic: .legible)
-        else { return }
-        playerItem.select(subtitleTrack, in: mediaSelectionGroup)
+        playbackManager.setSubTitleTrack(subtitleTrack)
     }
     
-    func selectStreamBitrate(at index: Int) {
-        let bitrate = supportedQualities[index].bitrate
-        guard let playerItem = player?.currentItem else { return }
-        playerItem.preferredPeakBitRate = bitrate
-        self.currentQualitiyIndex = index
+    func selectStreamQuality(_ quality: Quality) {
+        playbackManager.setStreamBitrate(quality.bitrate)
     }
     
     
@@ -254,5 +217,15 @@ class PlayVideoViewModel {
     
     @objc private func hideControlsDueToInactivity() {
         hideControls()
+    }
+}
+
+struct Quality {
+    let bitrate: Double
+    let resolution: String
+    
+    init(videoQuality: VideoQuality) {
+        self.bitrate = videoQuality.bitrate
+        self.resolution = videoQuality.resolution
     }
 }

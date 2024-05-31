@@ -40,6 +40,7 @@ class PlayVideoViewController: UIViewController {
         }
     }
     private var panOffset: Double = 0
+    private var qualitySelectionVC: QualitySelectionViewController?
     
     // MARK: - Initializer
     
@@ -239,8 +240,7 @@ extension PlayVideoViewController {
             let time = CMTimeMake(value: Int64(value), timescale: 1)
             viewModel.changePeriodTime(time)
         case .ended:
-            let time = CMTimeMake(value: Int64(playerControlView.seekBarValue), timescale: 1)
-            viewModel.seekToTime(time)
+            viewModel.seekTo(playerControlView.seekBarValue)
         default:
             break
         }
@@ -303,7 +303,7 @@ extension PlayVideoViewController: PlayerControlsViewDelegate {
                 viewModel.changePeriodTime(time)
             case .ended:
                 viewModel.resetControlsHiddenTimer()
-                viewModel.seekToTime(time)
+                viewModel.seekTo(playerControlView.seekBarValue)
             default:
                 break
             }
@@ -311,7 +311,7 @@ extension PlayVideoViewController: PlayerControlsViewDelegate {
         else { // tap slider to seek, implement by extension gesture will not have touch event
             viewModel.resetControlsHiddenTimer()
             viewModel.changePeriodTime(time)
-            viewModel.seekToTime(time)
+            viewModel.seekTo(playerControlView.seekBarValue)
         }
     }
     
@@ -326,9 +326,12 @@ extension PlayVideoViewController: PlayerControlsViewDelegate {
     func openSettings() {
         viewModel.invalidateControlsHiddenTimer()
         viewModel.pausePlay()
-        let qualitySelectionView = QualitySelectionViewController(viewModel: viewModel.qualitiyViewModel)
-        qualitySelectionView.delegate = self
-        self.navigationController?.present(qualitySelectionView, animated: true)
+        if qualitySelectionVC == nil {
+            let qualitySelectionVC = QualitySelectionViewController(viewModel: .init(supportedQualities: viewModel.supportedQualities))
+            qualitySelectionVC.delegate = self
+            self.qualitySelectionVC = qualitySelectionVC
+        }
+        self.navigationController?.present(qualitySelectionVC!, animated: true)
     }
 }
 
@@ -350,7 +353,7 @@ extension PlayVideoViewController: SubtitleSelectionDelegate {
 // MARK: - Video Quality Settings Functionality
 
 extension PlayVideoViewController: QualitySelectionDelegate {
-    func onQualitySettingSelected(didSelectRowAt index: Int) {
-        viewModel.selectStreamBitrate(at: index)
+    func onQualitySettingSelected(quality: Quality) {
+        viewModel.selectStreamQuality(quality)
     }
 }

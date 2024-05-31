@@ -16,7 +16,7 @@ public class PlaybackManager: NSObject {
     private var playerItemObserver: NSKeyValueObservation?
     private var urlAssetObserver: NSKeyValueObservation?
     private var periodicTimeObserver: Any?
-    private var playerItem: AVPlayerItem? {
+    public private(set) var playerItem: AVPlayerItem? {
         willSet {
             guard let playerItemObserver = playerItemObserver else { return }
             playerItemObserver.invalidate()
@@ -46,9 +46,7 @@ public class PlaybackManager: NSObject {
                     
                     self.playerItem = AVPlayerItem(asset: urlAsset)
                     self.player.replaceCurrentItem(with: self.playerItem)
-                    self.fetchSupportedVideoQualites(url: url) { [weak self] qualities in
-                        self?.getPlaybackQualities(qualities)
-                    }
+                    self.fetchSupportedVideoQualites(url: url)
                 }
             } else {
                 playerItem = nil
@@ -61,6 +59,12 @@ public class PlaybackManager: NSObject {
         guard let mediaSelectionGroup = playerItem?.asset.mediaSelectionGroup(forMediaCharacteristic: .legible)
         else { return nil }
         return mediaSelectionGroup.options.filter { $0.extendedLanguageTag != nil }
+    }
+    
+    public private(set) var supportedQualities: [VideoQuality] = [] {
+        didSet {
+           getPlaybackQualities(supportedQualities)
+        }
     }
     
     // MARK: - Delegation
@@ -116,17 +120,56 @@ public class PlaybackManager: NSObject {
         playerFinishPlaying()
     }
     
+    public func pause() {
+        player.pause()
+    }
+    
+    public func play() {
+        player.play()
+    }
+    
+    public func seekToTime(_ time: CMTime, completion: @escaping (Bool) -> Void) {
+        guard let duration = player.currentItem?.duration
+        else { return }
+        let seekToTime = time.seconds < CMTimeGetSeconds(duration) ? CMTimeMake(value: Int64(time.seconds * 1000 as Float64), timescale: 1000) : CMTimeMake(value: Int64(CMTimeGetSeconds(duration) * 1000 as Float64), timescale: 1000)
+        player.seek(to: seekToTime, toleranceBefore: .zero, toleranceAfter: .zero, completionHandler: completion)
+    }
+                    
+    public func seekWithOffest(_ value: CGFloat, completion: @escaping (CMTime) -> Void) {
+        guard let duration = player.currentItem?.duration
+        else { return }
+        let playerCurrentTime = CMTimeGetSeconds(player.currentTime())
+        let newTime = playerCurrentTime + value
+        let seekToTime = newTime < CMTimeGetSeconds(duration) ? CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000) : CMTimeMake(value: Int64(CMTimeGetSeconds(duration) * 1000 as Float64), timescale: 1000)
+        player.seek(to: seekToTime, toleranceBefore: .zero, toleranceAfter: .zero) { [weak self] _ in
+            guard let self = self,
+                  let currentTime = player.currentItem?.currentTime()
+            else { return }
+            completion(currentTime)
+        }
+    }
+    
+    public func setSubTitleTrack(_ subtitleTrack: AVMediaSelectionOption?) {
+        guard let playerItem = player.currentItem,
+              let mediaSelectionGroup = playerItem.asset.mediaSelectionGroup(forMediaCharacteristic: .legible)
+        else { return }
+        playerItem.select(subtitleTrack, in: mediaSelectionGroup)
+    }
+    
+    public func setStreamBitrate(_ bitrate: Double) {
+        playerItem?.preferredPeakBitRate = bitrate
+    }
     
     // MARK: - Video Quality
     
-    private func fetchSupportedVideoQualites(url: URL, completions: @escaping ([VideoQuality]) -> Void) {
-        client.get(from: url) { result in
+    private func fetchSupportedVideoQualites(url: URL) {
+        client.get(from: url) { [weak self] result in
             switch result {
             case .success(let (data, _)):
                 let playbackQualities = M3u8Helper().fetchSupportedVideoQualities(with: data)
-                completions(playbackQualities)
+                self?.supportedQualities = playbackQualities
             case .failure(_):
-                completions([])
+                self?.supportedQualities = []
             }
         }
     }

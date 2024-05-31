@@ -8,10 +8,10 @@
 import Foundation
 
 class QualitySelectionViewModel {
-    var supportedResolutions: [String]
+    var supportedQualities: [Quality]
     var selectedItemIndex: Int = 0
 
-    init(supportedResolutions: [String]) {
-        self.supportedResolutions = supportedResolutions
+    init(supportedQualities: [Quality]) {
+        self.supportedQualities = supportedQualities
     }
 }

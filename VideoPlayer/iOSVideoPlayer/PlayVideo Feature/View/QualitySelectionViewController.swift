@@ -9,7 +9,7 @@ import AVFoundation
 import UIKit
 
 protocol QualitySelectionDelegate: AnyObject {
-    func onQualitySettingSelected(didSelectRowAt index: Int)
+    func onQualitySettingSelected(quality: Quality)
     func onDismissed()
 }
 
@@ -135,12 +135,12 @@ class QualitySelectionViewController: UIViewController {
 
 extension QualitySelectionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return viewModel.supportedResolutions.count
+        return viewModel.supportedQualities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: QualitySelectionViewController.cellIdentifier, for: indexPath) as! SelectionCellView
-        let qualitySetting = viewModel.supportedResolutions[indexPath.row]
+        let qualitySetting = viewModel.supportedQualities[indexPath.row].resolution
         let isSelected = indexPath.row == viewModel.selectedItemIndex
         cell.configureCell(title: qualitySetting, isSelected: isSelected)
         cell.selectionStyle = .none
@@ -150,7 +150,8 @@ extension QualitySelectionViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectedItemIndex = indexPath.row
         tableView.reloadData()
-        delegate?.onQualitySettingSelected(didSelectRowAt: indexPath.row)
+        let quality = viewModel.supportedQualities[indexPath.row]
+        delegate?.onQualitySettingSelected(quality: quality)
         dismissView()
     }
 
