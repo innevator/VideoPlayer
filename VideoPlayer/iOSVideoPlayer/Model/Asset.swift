@@ -7,6 +7,10 @@
 
 import VideoPlayer
 
+/*
+ a type for adaption Stream from VideoPlayer SDK
+ */
+
 class Asset {
     private let stream: VideoPlayer.Stream
     

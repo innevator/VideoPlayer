@@ -219,13 +219,3 @@ class PlayVideoViewModel {
         hideControls()
     }
 }
-
-struct Quality {
-    let bitrate: Double
-    let resolution: String
-    
-    init(videoQuality: VideoQuality) {
-        self.bitrate = videoQuality.bitrate
-        self.resolution = videoQuality.resolution
-    }
-}
