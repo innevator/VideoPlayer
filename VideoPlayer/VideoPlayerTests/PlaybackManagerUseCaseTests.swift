@@ -10,14 +10,6 @@ import VideoPlayer
 
 class PlaybackManagerUseCaseTests: XCTestCase {
     
-    weak var playbackManager: PlaybackManager?
-    
-    override func tearDown() {
-        super.tearDown()
-        
-        XCTAssertNil(playbackManager, "memory leak detect")
-    }
-    
     func test_initailize() {
         let (sut, _) = makeSUT()
         XCTAssertNil(sut.stream)
@@ -100,10 +92,11 @@ class PlaybackManagerUseCaseTests: XCTestCase {
     
     // MARK: - Helper
     
-    private func makeSUT() -> (PlaybackManager, HTTPClientSpy) {
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (PlaybackManager, HTTPClientSpy) {
         let client = HTTPClientSpy()
         let playbackManager = PlaybackManager(client: client)
-        self.playbackManager = playbackManager
+        trackForMemoryLeaks(playbackManager, file: file, line: line)
+        trackForMemoryLeaks(client, file: file, line: line)
         return (playbackManager, client)
     }
 }
