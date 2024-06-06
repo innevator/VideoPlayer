@@ -11,12 +11,12 @@ class PlayListViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let tableView = UITableView()
     private let router: Router
     private let service: AssetService
     private var viewModel = PlayListViewModel(playlist: []) {
         didSet { self.tableView.reloadData() }
     }
+    let tableView = UITableView()
     
     
     // MARK: - Initializer
@@ -67,10 +67,8 @@ class PlayListViewController: UIViewController {
         service.getAssets { result in
             switch result {
             case .success(let assets):
-                let playlist1 = PlayList(title: "Base", assets: [assets[0]])
-                let playlist2 = PlayList(title: "Advanced", assets: [assets[1]])
-                let playlist3 = PlayList(title: "MultiPlay", assets: assets)
-                self.viewModel = PlayListViewModel(playlist: [playlist1, playlist2, playlist3])
+                let playlist = assets.map { PlayList(title: $0.name, assets: [$0])}
+                self.viewModel = PlayListViewModel(playlist: playlist)
                
             case .failure(_):
                 self.router.go(.alert(title: String(.getAssetsFailedAlertTitle), 

@@ -16,6 +16,9 @@
 		FE17BCB32C08592D007E11B6 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */; };
 		FE17BCB52C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17BCB42C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift */; };
 		FE77D6C22C099FB50036B6D8 /* Quality.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77D6C12C099FB50036B6D8 /* Quality.swift */; };
+		FE77D6D12C118D920036B6D8 /* PlayListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77D6D02C118D920036B6D8 /* PlayListViewControllerTests.swift */; };
+		FE77D6D62C1191630036B6D8 /* PlayListViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77D6D52C1191630036B6D8 /* PlayListViewController+Helpers.swift */; };
+		FE77D6D82C1194610036B6D8 /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE77D6D72C1194610036B6D8 /* UIViewController+Helpers.swift */; };
 		FECCF9C32BFFF9DD008ABFB3 /* VideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FECCF9CB2BFFFA6E008ABFB3 /* StreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */; };
 		FECCF9CC2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECCF9CA2BFFFA6E008ABFB3 /* RemoteStreamLoader.swift */; };
@@ -96,6 +99,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FE77D6CB2C118D690036B6D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FECCF9B62BFFF9DD008ABFB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FECCF9ED2BFFFFB5008ABFB3;
+			remoteInfo = iOSVideoPlayer;
+		};
 		FECCF9DB2BFFFAE2008ABFB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FECCF9B62BFFF9DD008ABFB3 /* Project object */;
@@ -136,6 +146,10 @@
 		FE17BCB22C08592D007E11B6 /* URLSessionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
 		FE17BCB42C085A88007E11B6 /* PlaybackManagerUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackManagerUseCaseTests.swift; sourceTree = "<group>"; };
 		FE77D6C12C099FB50036B6D8 /* Quality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quality.swift; sourceTree = "<group>"; };
+		FE77D6C72C118D690036B6D8 /* iOSVideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSVideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE77D6D02C118D920036B6D8 /* PlayListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayListViewControllerTests.swift; sourceTree = "<group>"; };
+		FE77D6D52C1191630036B6D8 /* PlayListViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayListViewController+Helpers.swift"; sourceTree = "<group>"; };
+		FE77D6D72C1194610036B6D8 /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCF9C22BFFF9DD008ABFB3 /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		FECCF9C92BFFFA6E008ABFB3 /* StreamLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamLoader.swift; sourceTree = "<group>"; };
@@ -218,6 +232,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FE77D6C42C118D690036B6D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FECCF9BC2BFFF9DD008ABFB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,6 +310,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		FE77D6C82C118D690036B6D8 /* iOSVideoPlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE77D6D22C1191130036B6D8 /* Helper */,
+				FE77D6D02C118D920036B6D8 /* PlayListViewControllerTests.swift */,
+			);
+			path = iOSVideoPlayerTests;
+			sourceTree = "<group>";
+		};
+		FE77D6D22C1191130036B6D8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FE77D6D52C1191630036B6D8 /* PlayListViewController+Helpers.swift */,
+				FE77D6D72C1194610036B6D8 /* UIViewController+Helpers.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		FECCF9B52BFFF9DD008ABFB3 = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +335,7 @@
 				FECCF9C12BFFF9DD008ABFB3 /* VideoPlayer */,
 				FECCF9D72BFFFAE2008ABFB3 /* VideoPlayerTests */,
 				FECCF9EF2BFFFFB5008ABFB3 /* iOSVideoPlayer */,
+				FE77D6C82C118D690036B6D8 /* iOSVideoPlayerTests */,
 				FECCF9C02BFFF9DD008ABFB3 /* Products */,
 				FECCFA802C000A24008ABFB3 /* Frameworks */,
 			);
@@ -307,6 +347,7 @@
 				FECCF9BF2BFFF9DD008ABFB3 /* VideoPlayer.framework */,
 				FECCF9D62BFFFAE2008ABFB3 /* VideoPlayerTests.xctest */,
 				FECCF9EE2BFFFFB5008ABFB3 /* iOSVideoPlayer.app */,
+				FE77D6C72C118D690036B6D8 /* iOSVideoPlayerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -519,6 +560,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		FE77D6C62C118D690036B6D8 /* iOSVideoPlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE77D6CF2C118D690036B6D8 /* Build configuration list for PBXNativeTarget "iOSVideoPlayerTests" */;
+			buildPhases = (
+				FE77D6C32C118D690036B6D8 /* Sources */,
+				FE77D6C42C118D690036B6D8 /* Frameworks */,
+				FE77D6C52C118D690036B6D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE77D6CC2C118D690036B6D8 /* PBXTargetDependency */,
+			);
+			name = iOSVideoPlayerTests;
+			productName = iOSVideoPlayerTests;
+			productReference = FE77D6C72C118D690036B6D8 /* iOSVideoPlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FECCF9BE2BFFF9DD008ABFB3 /* VideoPlayer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FECCF9C62BFFF9DD008ABFB3 /* Build configuration list for PBXNativeTarget "VideoPlayer" */;
@@ -584,6 +643,11 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					FE77D6C62C118D690036B6D8 = {
+						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
+						TestTargetID = FECCF9ED2BFFFFB5008ABFB3;
+					};
 					FECCF9BE2BFFF9DD008ABFB3 = {
 						CreatedOnToolsVersion = 15.0.1;
 						LastSwiftMigration = 1500;
@@ -614,11 +678,19 @@
 				FECCF9BE2BFFF9DD008ABFB3 /* VideoPlayer */,
 				FECCF9D52BFFFAE2008ABFB3 /* VideoPlayerTests */,
 				FECCF9ED2BFFFFB5008ABFB3 /* iOSVideoPlayer */,
+				FE77D6C62C118D690036B6D8 /* iOSVideoPlayerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FE77D6C52C118D690036B6D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FECCF9BD2BFFF9DD008ABFB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -648,6 +720,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FE77D6C32C118D690036B6D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE77D6D82C1194610036B6D8 /* UIViewController+Helpers.swift in Sources */,
+				FE77D6D12C118D920036B6D8 /* PlayListViewControllerTests.swift in Sources */,
+				FE77D6D62C1191630036B6D8 /* PlayListViewController+Helpers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FECCF9BB2BFFF9DD008ABFB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -749,6 +831,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FE77D6CC2C118D690036B6D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FECCF9ED2BFFFFB5008ABFB3 /* iOSVideoPlayer */;
+			targetProxy = FE77D6CB2C118D690036B6D8 /* PBXContainerItemProxy */;
+		};
 		FECCF9DC2BFFFAE2008ABFB3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FECCF9BE2BFFF9DD008ABFB3 /* VideoPlayer */;
@@ -782,6 +869,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FE77D6CD2C118D690036B6D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.iOSVideoPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSVideoPlayer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOSVideoPlayer";
+			};
+			name = Debug;
+		};
+		FE77D6CE2C118D690036B6D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sample.iOSVideoPlayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSVideoPlayer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOSVideoPlayer";
+			};
+			name = Release;
+		};
 		FECCF9C42BFFF9DD008ABFB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1076,6 +1206,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FE77D6CF2C118D690036B6D8 /* Build configuration list for PBXNativeTarget "iOSVideoPlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE77D6CD2C118D690036B6D8 /* Debug */,
+				FE77D6CE2C118D690036B6D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FECCF9B92BFFF9DD008ABFB3 /* Build configuration list for PBXProject "VideoPlayer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

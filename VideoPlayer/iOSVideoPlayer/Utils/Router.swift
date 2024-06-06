@@ -8,7 +8,7 @@
 import UIKit
 import VideoPlayer
 
-struct Router {
+class Router {
     
     enum RoutableView {
         case playVideo(assets: [Asset])

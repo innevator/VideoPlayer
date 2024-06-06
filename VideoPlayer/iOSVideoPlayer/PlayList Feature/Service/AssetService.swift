@@ -27,9 +27,17 @@ class MockHttpClient: HTTPClient {
 }
 
 class AssetService {
-    func getAssets(completion: @escaping (Result<[Asset], Error>) -> Void) {
+    private lazy var loader: StreamLoader = {
         let url = Bundle.main.url(forResource: "Streams", withExtension: "json")!
-        let loader = RemoteStreamLoader(url: url, client: MockHttpClient())
+        return RemoteStreamLoader(url: url, client: MockHttpClient())
+    }()
+    
+    convenience init(loader: StreamLoader) {
+        self.init()
+        self.loader = loader
+    }
+    
+    func getAssets(completion: @escaping (Result<[Asset], Error>) -> Void) {
         loader.load { result in
             switch result {
             case .success(let streams):
