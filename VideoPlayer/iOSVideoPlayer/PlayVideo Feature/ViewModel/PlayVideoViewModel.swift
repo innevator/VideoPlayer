@@ -49,7 +49,7 @@ class PlayVideoViewModel {
     private let playbackManager = PlaybackManager(client: URLSessionClient())
     private(set) var currentPlayback: Asset? {
         didSet {
-            playbackManager.stream = currentPlayback?.getStream()
+            playbackManager.setStream(currentPlayback?.getStream())
             guard let currentPlayback = currentPlayback else { return }
             changePlayback(currentPlayback)
         }

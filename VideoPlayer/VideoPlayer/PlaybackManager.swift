@@ -160,7 +160,7 @@ public class PlaybackManager: NSObject {
         playerItem?.preferredPeakBitRate = bitrate
     }
     
-    public func setStream(_ stream: Stream) {
+    public func setStream(_ stream: Stream?) {
         self.stream = stream
     }
     
