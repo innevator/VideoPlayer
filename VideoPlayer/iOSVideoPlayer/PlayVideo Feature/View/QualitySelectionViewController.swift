@@ -38,14 +38,6 @@ class QualitySelectionViewController: UIViewController {
         $0.font = FontUtility.helveticaNeueMedium(ofSize: 16)
     }
     
-    override var shouldAutorotate: Bool {
-        return true
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
-    }
-    
     weak var delegate: QualitySelectionDelegate?
     private let viewModel: QualitySelectionViewModel
     
@@ -54,19 +46,14 @@ class QualitySelectionViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         modalPresentationStyle = .popover
-    }
-    
-    @objc func shouldForceLandscape() {
-        //  View controller that response this protocol can rotate ...
-    }
-    
-    @available(*, unavailable)
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupView() {
