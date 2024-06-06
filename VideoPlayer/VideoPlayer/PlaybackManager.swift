@@ -33,20 +33,20 @@ public class PlaybackManager: NSObject {
             }
         }
     }
-    public var stream: Stream? {
+    public private(set) var stream: Stream? {
         willSet {
             guard let urlAssetObserver = urlAssetObserver else { return }
             urlAssetObserver.invalidate()
         }
         didSet {
             if let stream = stream, let url = URL(string: stream.url) {
+                fetchSupportedVideoQualites(url: url)
                 let urlAsset = AVURLAsset(url: url)
                 urlAssetObserver = urlAsset.observe(\AVURLAsset.isPlayable, options: [.new, .initial]) { [weak self] (urlAsset, _) in
                     guard let self = self, urlAsset.isPlayable == true else { return }
                     
                     self.playerItem = AVPlayerItem(asset: urlAsset)
                     self.player.replaceCurrentItem(with: self.playerItem)
-                    self.fetchSupportedVideoQualites(url: url)
                 }
             } else {
                 playerItem = nil
@@ -158,6 +158,10 @@ public class PlaybackManager: NSObject {
     
     public func setStreamBitrate(_ bitrate: Double) {
         playerItem?.preferredPeakBitRate = bitrate
+    }
+    
+    public func setStream(_ stream: Stream) {
+        self.stream = stream
     }
     
     // MARK: - Video Quality
